@@ -15,11 +15,11 @@
             font-style: normal;
             font-variation-settings: "wdth" 100;
             display:inline-block;
-            -webkit-transform:scale(1.2,1); /* Safari and Chrome */
-            -moz-transform:scale(1.2,1); /* Firefox */
-            -ms-transform:scale(1.2,1); /* IE 9 */
-            -o-transform:scale(1.2,1); /* Opera */
-            transform:scale(1.2,1); /* W3C */
+            -webkit-transform:scale(1.1,1);
+            -moz-transform:scale(1.1,1);
+            -ms-transform:scale(1.1,1);
+            -o-transform:scale(1.1,1);
+            transform:scale(1.1,1);
             left: 50%;
             top: 50%;
             position: absolute;
@@ -47,12 +47,18 @@
             font-size: 2vmin;
             translate: -50% 100%;
         }
+
+        .unselectable {
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-    <img src="./terobit-logo-sv.svg">
-    <p class="roboto">Terobit Software</p>
+    <img class="unselectable" src="./terobit-logo-sv.svg">
+    <p class="roboto unselectable">Terobit Software</p>
     <p class="roboto smaller">contact@terobit.io</p>
 </body>
 
