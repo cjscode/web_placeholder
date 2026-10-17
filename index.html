@@ -29,7 +29,7 @@
             position: absolute;
             translate: -50% -100%;
             font-size: 3vmin;
-            color: rgb(50,50,50);
+            color: rgb(205,205,205);
         }
 
         /*html, head {
@@ -53,7 +53,7 @@
             overflow: hidden;
             min-height: 100vh;
             /* average tone of the noise texture, so the fade edge is seamless */
-            background-color: #eeeeee !important;
+            background-color: #111111 !important;
         }
 
         /* texture only around the logo and text, fading out to the solid body color */
@@ -63,6 +63,8 @@
             inset: 0;
             z-index: -1;
             background-color: #ffffff;
+            /* invert the light texture so it averages to #111111 */
+            filter: invert(1);
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
             -webkit-mask-image: radial-gradient(circle at 50% calc(50% - 10vmin), #000 22vmin, transparent 36vmin);
             mask-image: radial-gradient(circle at 50% calc(50% - 10vmin), #000 22vmin, transparent 36vmin);
@@ -82,7 +84,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-    <img class="unselectable" src="./terobit-logo-sv.svg">
+    <img class="unselectable" src="./terobit-logo-sv-dark.svg">
     <h1 class="roboto unselectable">Terobit Software</h1>
     <h1 class="roboto smaller">contact@terobit.io</h1>
 </body>
