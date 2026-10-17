@@ -12,6 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
 
+        /* one size unit for the logo, text and glow; larger on phones where vmin gets small */
+        :root {
+            --u: 1vmin;
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --u: 1.7vmin;
+            }
+        }
+
         h1 {
             font-family: "Roboto", sans-serif;
             font-optical-sizing: auto;
@@ -28,7 +39,7 @@
             top: 50%;
             position: absolute;
             translate: -50% -100%;
-            font-size: 3vmin;
+            font-size: calc(var(--u) * 3);
             color: rgb(205,205,205);
         }
 
@@ -44,8 +55,8 @@
             top: 50%;
             position: absolute;
             translate: -50% -100%;
-            width: 25vmin;
-            height: 25vmin;
+            width: calc(var(--u) * 25);
+            height: calc(var(--u) * 25);
             overflow: visible;
         }
 
@@ -74,12 +85,12 @@
             /* keep the grain subtle */
             opacity: 0.3;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0.6 0 0 0  0 0 0 0 0  1 0 0 0 -0.42'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
-            -webkit-mask-image: radial-gradient(circle at 50% calc(50% - 10vmin), #000 22vmin, transparent 36vmin);
-            mask-image: radial-gradient(circle at 50% calc(50% - 10vmin), #000 22vmin, transparent 36vmin);
+            -webkit-mask-image: radial-gradient(circle at 50% calc(50% - var(--u) * 10), #000 calc(var(--u) * 22), transparent calc(var(--u) * 36));
+            mask-image: radial-gradient(circle at 50% calc(50% - var(--u) * 10), #000 calc(var(--u) * 22), transparent calc(var(--u) * 36));
         }
 
         .smaller {
-            font-size: 2vmin;
+            font-size: calc(var(--u) * 2);
             translate: -50% 100%;
         }
 
