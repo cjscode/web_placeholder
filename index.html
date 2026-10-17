@@ -52,7 +52,7 @@
             margin: 0;
             overflow: hidden;
             min-height: 100vh;
-            /* average tone of the noise texture, so the fade edge is seamless */
+            /* same as the texture base, so only the orange grain fades out */
             background-color: #111111 !important;
         }
 
@@ -62,10 +62,10 @@
             position: fixed;
             inset: 0;
             z-index: -1;
-            background-color: #ffffff;
-            /* invert the light texture so it averages to #111111 */
-            filter: invert(1);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            background-color: #111111;
+            /* keep the grain subtle */
+            opacity: 0.3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0.6 0 0 0  0 0 0 0 0  1 0 0 0 -0.42'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E");
             -webkit-mask-image: radial-gradient(circle at 50% calc(50% - 10vmin), #000 22vmin, transparent 36vmin);
             mask-image: radial-gradient(circle at 50% calc(50% - 10vmin), #000 22vmin, transparent 36vmin);
         }
